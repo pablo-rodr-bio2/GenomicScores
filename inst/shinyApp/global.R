@@ -1,7 +1,12 @@
+### loading libraries
+library(shiny)
 library(shinydashboard)
-library(GenomicScores)
 library(magrittr)
 library(shinycustomloader)
+library(shinyjs)
+library(data.table)
+library(DT)
+
 
 # Global options, make DT::rendertable print NA values as 'NA'
 options(htmlwidgets.TOJSON_ARGS = list(na = 'string'))

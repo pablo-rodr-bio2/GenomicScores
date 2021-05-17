@@ -1,37 +1,49 @@
 ui <- dashboardPage(
-    title = "GenomicScores",
+    title = "Genomic Scores",
+    
     dashboardHeader(
-        title = "GenomicScores",
-        tags$li(tags$img(src = 'GenomicScores.png',
-                         height = "50vh", width = "50vw"),
-                class = "dropdown"),
-        titleWidth = 320
+        tags$li(class = "dropdown",
+                tags$div(id = "app_title", "GenomicScores")
+        ),
+        title = tags$img(src="GenomicScores.png", height=75, width=75),
+        titleWidth = 300
     ),
+    
     dashboardSidebar(
+        width = 300,
         tags$head(
             tags$link(rel = "stylesheet", type = "text/css", href = "style.css"),
             uiOutput("css.apkgs")
         ),
-        width = 320,
-        selectInput("organism", "Select an Organism",
+        br(),
+        selectInput("organism", "Organism",
                     choices = c("All" = "All", unique(options$Organism)),
                     selected = "All"),
-        selectInput("category", "Select a Category",
+        selectInput("category", "Category",
                     choices = c("All" = "All", unique(options$Category)),
                     selected = "All"),
-        tags$div(id="cssref", 
-                 selectInput("annotPackage", "Select an Annotation Package",
+        tags$div(id="cssref",
+                 selectInput("annotPackage", "Annotation Package",
                              choices = NULL)),
         uiOutput("pop"),
-        radioButtons("webOrBed", "Input genomic coordinates",
+        br(), 
+        br(),
+        radioButtons("webOrBed", "Genomic Coordinates",
                      choices = list("Manually" = "web", "Uploading BED file" = "bed")),
         uiOutput("webOptions"),
-        fileInput("upload", "Upload your Bed format file"),
-        splitLayout(
-            actionButton("run", "Run", icon = icon("cloud-upload-alt")),
-            actionButton("quit", "Quit")
+        fileInput("upload", "Select your Bed format file"),
+        br(),
+        fluidRow(
+            column(
+                width = 12, align = "center", 
+                actionButton("run", "RUN", icon = icon("cog"), 
+                             class = "run-btn", width = "60%"),
+                actionButton("quit", "QUIT", icon = icon("times"),
+                             class = "cls-btn" , width = "60%")) 
         )
+        
     ),
+    
     dashboardBody(
         shinyjs::useShinyjs(),
         fluidRow(
@@ -46,33 +58,14 @@ ui <- dashboardPage(
                                          withLoader(verbatimTextOutput("citation"))
                                   )
                          ),
-                         shinycustomloader::withLoader(DT::dataTableOutput("printGs")),
+                         withLoader(DT::dataTableOutput("printGs")),
                          uiOutput("down_btn")
                 ),
                 tabPanel("About",
-                         includeMarkdown("about.md")),
+                         includeMarkdown("about.md")
+                ),
                 tabPanel("Session Info",
-                         verbatimTextOutput("sessionInfo"))
-            )
-        ),
-        # tabsetPanel(type="tabs",
-        #             tabPanel("GScore",
-        #                      fluidRow(id="info",
-        #                               column(6,
-        #                                      shinycustomloader::withLoader(verbatimTextOutput("annotPackageInfo"))
-        #                               ),
-        #                               column(6,
-        #                                      shinycustomloader::withLoader(verbatimTextOutput("citation"))
-        #                               )
-        #                      ),
-        #                      shinycustomloader::withLoader(DT::dataTableOutput("printGs")),
-        #                      uiOutput("down_btn")
-        #             ),
-        #             tabPanel("About",
-        #                      includeMarkdown("about.md")),
-        #             tabPanel("Session Info",
-        #                      verbatimTextOutput("sessionInfo"))),
-        width = 9
+                         verbatimTextOutput("sessionInfo")))
+        )
     )
 )
-
