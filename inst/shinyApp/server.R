@@ -153,9 +153,8 @@ server <- function(input, output, session) {
   output$down_btn <- renderUI({
     req(areThereErrors$Yes==TRUE)
     fluidRow(
-      downloadButton("dwn_bed", "Download BED"),
-      downloadButton("dwn_csv", "Download CSV"))
-    
+      downloadButton("dwn_bed", "Download BED", icon = icon("database")),
+      downloadButton("dwn_csv", "Download CSV", icon = icon("file-csv")))
   })
   
   ################# REACTIVE CORE VALUES #######################
