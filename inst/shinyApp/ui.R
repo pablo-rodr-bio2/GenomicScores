@@ -40,8 +40,8 @@ ui <- dashboardPage(
                              class = "run-btn", width = "60%"),
                 actionButton("quit", "QUIT", icon = icon("times"),
                              class = "cls-btn" , width = "60%")) 
-            )
-            
+        )
+        
     ),
     
     dashboardBody(
