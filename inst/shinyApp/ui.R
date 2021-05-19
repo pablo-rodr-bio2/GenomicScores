@@ -45,7 +45,7 @@ ui <- dashboardPage(
     ),
     
     dashboardBody(
-        shinyjs::useShinyjs(),
+        useShinyjs(),
         fluidRow(
             tabBox(
                 width = 12,

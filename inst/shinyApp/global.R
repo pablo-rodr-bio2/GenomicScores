@@ -7,8 +7,6 @@ library(shinyjs)
 library(data.table)
 library(DT)
 
-
-
 # Global options, make DT::rendertable print NA values as 'NA'
 options(htmlwidgets.TOJSON_ARGS = list(na = 'string'))
 
