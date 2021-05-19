@@ -19,7 +19,7 @@ Suggests: RUnit, BiocStyle, knitr, rmarkdown, BSgenome.Hsapiens.UCSC.hg19,
           SNPlocs.Hsapiens.dbSNP144.GRCh37, VariantAnnotation,
           TxDb.Hsapiens.UCSC.hg19.knownGene, gwascat, RColorBrewer,
           shiny, shinyjs, shinycustomloader, data.table, DT, magrittr,
-		      shinydashboard
+		  shinydashboard
 VignetteBuilder: knitr
 URL: https://github.com/rcastelo/GenomicScores
 BugReports: https://github.com/rcastelo/GenomicScores/issues

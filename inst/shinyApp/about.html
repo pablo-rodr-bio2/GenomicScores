@@ -1,0 +1,18 @@
+
+
+
+<div id="a-shiny-app-for-the-genomicscore-package" class="section level2">
+<h2>A Shiny App for the GenomicScore package</h2>
+<p>Welcome to our shiny gscores app.</p>
+<p>The purpose of this app is to facilitate using the <a href="https://bioconductor.org/packages/release/bioc/vignettes/GenomicScores/inst/doc/GenomicScores.html">GenomicScores package</a> with a simple GUI.</p>
+<ol style="list-style-type: decimal">
+<li><p>Choose which Annotation package (e.g., <a href="http://bioconductor.org/packages/release/data/annotation/html/phastCo%20ns100way.UCSC.hg38.html">phastCons100way.UCSC.hg38</a> ) you want to use. The app will show you the <code>show()</code> and <code>citation()</code> function for that package.<br />
+<strong>NOTE</strong><br />
+This app doesn’t include any annotation package, but it identifies the ones you have already installed and the ones you don’t. In order to install them, you can select them in “Select an Annotation Package” and a modal window will guide you through the installation process. You can also install them as normally, using the <code>BiocManager</code> package on your R session.<br />
+Example: `<code>BiocManager::install(&quot;phastCons100way.UCSC.hg38&quot;)</code></p></li>
+<li><p>Select between the populations options from within your chosen package (e.g., <code>default</code> or <code>DP2</code> ). You can choose more than one population.</p></li>
+<li><p>Then, choose between using this app interface to select parameters for the GRange object (<code>seqname</code>, <code>starting</code> and <code>ending</code> position), or you can upload your own <a href="https://genome.ucsc.edu/FAQ/FAQformat#format1">bed</a> format file with this inputs in order to look up for their genomic scores.<br />
+Bear in mind that by using the app parameters, you can choose to see the mean gscores of a range of positions (<strong>Range</strong>), or you can see them separately (<strong>Individual</strong>)</p></li>
+<li><p>Finally, you can download the generated tables in bed or csv format.</p></li>
+</ol>
+</div>

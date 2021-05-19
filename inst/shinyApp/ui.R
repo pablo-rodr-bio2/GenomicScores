@@ -62,7 +62,7 @@ ui <- dashboardPage(
                          uiOutput("down_btn")
                 ),
                 tabPanel("About",
-                         includeMarkdown("about.md")
+                         includeHTML("about.html")
                          ),
                 tabPanel("Session Info",
                          verbatimTextOutput("sessionInfo")))
