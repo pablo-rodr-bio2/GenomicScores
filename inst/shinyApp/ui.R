@@ -62,8 +62,13 @@ ui <- dashboardPage(
                          uiOutput("down_btn")
                 ),
                 tabPanel("About",
-                         includeHTML("about.html")
-                         ),
+                         fluidRow(
+                             box(
+                                 width = 12,
+                                 includeHTML("about.html")
+                             )
+                         )
+                ),
                 tabPanel("Session Info",
                          verbatimTextOutput("sessionInfo")))
         )
